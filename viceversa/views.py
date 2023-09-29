@@ -1,11 +1,12 @@
 from django.shortcuts import render
+from django.http import HttpRequest
 
 
-def home(request):
+def home(request: HttpRequest) -> HttpResponse:
     return render(request, 'home.html')
 
 
-def reverse(request):
+def reverse(request: HttpRequest) -> HttpResponse:
     user_text = request.GET['usertext']
     words = user_text.split()
     number_of_words = len(words)
